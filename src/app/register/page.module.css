@@ -1,0 +1,55 @@
+.formSection {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.formSectionTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.75rem;
+}
+.inputGroup {
+    margin-bottom: 1.5rem;
+}
+.inputLabel {
+    display: block;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+.formInput {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+.formInput:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+.radioGroup label {
+    margin-right: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.radioGroup input {
+    margin-right: 0.5rem;
+}
+.checkboxLabel {
+    display: flex;
+    align-items: flex-start;
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+.checkboxLabel input {
+    margin-top: 0.25rem;
+    margin-right: 0.75rem;
+}
