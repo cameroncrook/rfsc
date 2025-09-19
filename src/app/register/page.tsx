@@ -49,7 +49,7 @@ export default function Register() {
                         </div>
                         <div className={`${styles.inputGroup}`}>
                             <label className={`${styles.inputLabel}`}>Youth T-shirt Size</label>
-                            <div className={`flex flex-wrap items-center radioGroup`}>
+                            <div className={`flex flex-wrap items-center ${styles.radioGroup}`}>
                                 <label><input name="tshirt-size" type="radio" value="xs"/> X-Small</label>
                                 <label><input name="tshirt-size" type="radio" value="s"/> Small</label>
                                 <label><input name="tshirt-size" type="radio" value="m"/> Medium</label>
@@ -190,7 +190,7 @@ export default function Register() {
                     </div>
 
                     <div className="text-center mt-8">
-                        <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg" type="submit">Submit</button>"
+                        <button className="bg-red-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-lg" type="submit">Submit</button>
                     </div>
                 </form>
                 

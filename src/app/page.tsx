@@ -6,13 +6,13 @@ import MainNav from "../components/mainNav";
 export default function Home() {
   return (
     <div className="font-sans">
-      <header className="row-start-1 w-full bg-[url(https://placehold.net/7-600x800.png)] bg-cover bg-center">
+      <header className="row-start-1 w-full bg-[url(https://static.wixstatic.com/media/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg/v1/fill/w_599,h_580,al_b,q_80,enc_avif,quality_auto/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg)] bg-cover bg-center bg-white">
         <MainNav />
         <section className="container mx-auto px-6 py-24 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">Rigby Free Soccer Club</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">Our free soccer program has already helped 1,000+ students build skills, make friends, and boost school attendance. No fees, just fun. Register now and be part of the team!</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Rigby Free Soccer Club</h1>
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8">Our free soccer program has already helped 1,000+ students build skills, make friends, and boost school attendance. No fees, just fun. Register now and be part of the team!</p>
 
-          <a className="bg-red-400 text-white px-8 py-4 rounded-full hover:bg-red-500 transition-colors text-lg font-semibold shadow-lg" href="#">Register Now</a>
+          <a className="bg-red-400 text-white px-8 py-4 rounded-full hover:bg-red-500 transition-colors text-lg font-semibold shadow-lg" href="/register">Register Now</a>
         </section>
       </header>
       <main>

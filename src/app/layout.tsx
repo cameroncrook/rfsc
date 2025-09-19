@@ -31,7 +31,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 antialiased`}
       >
         {children}
         <footer className="bg-gray-800 text-white mt-20">

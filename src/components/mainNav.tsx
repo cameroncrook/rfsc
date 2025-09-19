@@ -8,7 +8,7 @@ const MainNav: React.FC = () => (
         </div>
 
         <nav className="hidden md:flex items-center space-x-8 text-gray-600">
-            <a className="hover:text-red-400 transition-colors" href="#">Home</a>
+            <a className="hover:text-red-400 transition-colors" href="/">Home</a>
             <a className="hover:text-red-400 transition-colors" href="#">Schedule</a>
             <a className="hover:text-red-400 transition-colors" href="#">Contact</a>
             <a className="hover:text-red-400 transition-colors" href="#">Gallery</a>
