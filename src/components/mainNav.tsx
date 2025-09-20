@@ -12,7 +12,7 @@ const MainNav: React.FC = () => (
             <a className="hover:text-red-400 transition-colors" href="#">Schedule</a>
             <a className="hover:text-red-400 transition-colors" href="#">Contact</a>
             <a className="hover:text-red-400 transition-colors" href="#">Gallery</a>
-            <a className="hover:text-red-400 transition-colors" href="#">About</a>
+            <a className="hover:text-red-400 transition-colors" href="/about">About</a>
         </nav>
 
         <a className="bg-red-400 text-white px-6 py-2 rounded-full hover:bg-red-500 transition-colors hidden md:block" href="/register">Register to Play!</a>
