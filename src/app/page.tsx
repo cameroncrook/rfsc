@@ -5,14 +5,14 @@ import MainNav from "../components/mainNav";
 
 export default function Home() {
   return (
-    <div className="font-sans">
-      <header className="row-start-1 w-full bg-[url(https://static.wixstatic.com/media/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg/v1/fill/w_599,h_580,al_b,q_80,enc_avif,quality_auto/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg)] bg-cover bg-center bg-white">
-        <MainNav />
+    <div>
+      <header className="row-start-1 w-full bg-[url(https://static.wixstatic.com/media/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg/v1/fill/w_599,h_580,al_b,q_80,enc_avif,quality_auto/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg)] bg-cover bg-center bg-gray-600 bg-blend-overlay">
+        <MainNav lightMode={true} />
         <section className="container mx-auto px-6 py-24 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Rigby Free Soccer Club</h1>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8">Our free soccer program has already helped 1,000+ students build skills, make friends, and boost school attendance. No fees, just fun. Register now and be part of the team!</p>
 
-          <a className="bg-red-400 text-white px-8 py-4 rounded-full hover:bg-red-500 transition-colors text-lg font-semibold shadow-lg" href="/register">Register Now</a>
+          <a className="bg-primary/90 text-white px-8 py-4 rounded-full hover:bg-primary transition-colors text-lg font-semibold shadow-lg" href="/register">Register Now</a>
         </section>
       </header>
       <main>
@@ -33,8 +33,8 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Upcoming Events</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
-                  <div className="bg-red-100 p-4 rounded-full mb-4">
-                    <span className="material-icons text-red-400 text-4xl">event</span>
+                  <div className="bg-primary/10 p-4 rounded-full mb-4">
+                    <span className="material-icons text-primary text-4xl">event</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-800">FMS vs RMS</h3>
                   <p className="text-gray-500 mb-2">August 28 @5:00PM 2025</p>
@@ -42,8 +42,8 @@ export default function Home() {
                 </div>
 
                 <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
-                  <div className="bg-red-100 p-4 rounded-full mb-4">
-                    <span className="material-icons text-red-400 text-4xl">event</span>
+                  <div className="bg-primary/10 p-4 rounded-full mb-4">
+                    <span className="material-icons text-primary text-4xl">event</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-800">FMS vs RMS</h3>
                   <p className="text-gray-500 mb-2">August 28 @5:00PM 2025</p>
@@ -51,8 +51,8 @@ export default function Home() {
                 </div>
 
                 <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
-                  <div className="bg-red-100 p-4 rounded-full mb-4">
-                    <span className="material-icons text-red-400 text-4xl">event</span>
+                  <div className="bg-primary/10 p-4 rounded-full mb-4">
+                    <span className="material-icons text-primary text-4xl">event</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-800">FMS vs RMS</h3>
                   <p className="text-gray-500 mb-2">August 28 @5:00PM 2025</p>
@@ -71,7 +71,7 @@ export default function Home() {
                 <p className="text-gray-800">306 N 3700 E, Rigby, ID 83442</p>
               </div>
               <p className="text-2xl text-gray-500 mb-6">OR</p>
-              <p className="text-gray-600"><a className="text-red-400 font-semibold hover:underline" href="#">Send us a message</a> and we can help you donate.</p>
+              <p className="text-gray-600"><a className="text-primary font-semibold hover:underline" href="#">Send us a message</a> and we can help you donate.</p>
             </div>
           </section>
 

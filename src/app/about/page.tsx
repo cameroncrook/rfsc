@@ -5,7 +5,7 @@ import MainNav from "../../components/mainNav"
 
 export default function About() {
     return (
-        <div className="font-sans">
+        <div>
             <header>
                 <MainNav />
             </header>

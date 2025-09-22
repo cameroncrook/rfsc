@@ -30,9 +30,10 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 antialiased`}
+        className={`bg-gray-50 antialiased`}
       >
         {children}
         <footer className="bg-gray-800 text-white mt-20">
@@ -45,7 +46,7 @@ export default function RootLayout({
 
               <div>
                 <p>208-557-3207</p>
-                <a href="mailto:cacrook@sd251.org" className="text-blue-400 hover:underline">Email Us!</a>
+                <a href="mailto:cacrook@sd251.org" className="text-primary hover:underline">Email Us!</a>
               </div>
             </div>
             <hr className="border-gray-700 my-8" />
