@@ -50,6 +50,9 @@ export default function RootLayout({
               </div>
             </div>
             <hr className="border-gray-700 my-8" />
+            <div className="flex justify-center mb-4">
+              <a className="text-primary hover:underline" href="/coaches">Coaches Portal</a>
+            </div>
             <p className="text-center text-gray-500 text-sm">© 2025 Rigby Free Soccer Club. All rights reserved.</p>
           </div>
         </footer>
