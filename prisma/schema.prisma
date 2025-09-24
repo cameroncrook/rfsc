@@ -1,0 +1,92 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model coaches {
+  coaches_id      Int     @id @default(autoincrement())
+  first_name      String?
+  last_name       String?
+  email           String
+  messages_access Boolean?
+  games_access    Boolean?
+  player_access   Boolean?
+  coaches_access  Boolean?
+}
+
+model message {
+  message_id Int    @id @default(autoincrement())
+  name       String?
+  email      String?
+  subject    String?
+  message    String?
+}
+
+model team {
+  team_id Int    @id @default(autoincrement())
+  name    String
+  players player[]
+  home_games game[] @relation("HomeTeam")
+  away_games game[] @relation("AwayTeam")
+}
+
+model game {
+  game_id  Int      @id @default(autoincrement())
+  name     String
+  date     DateTime
+  time     DateTime
+  location String?
+  home     Int
+  away     Int
+
+  home_team team @relation("HomeTeam", fields: [home], references: [team_id])
+  away_team team @relation("AwayTeam", fields: [away], references: [team_id])
+}
+
+model player {
+  player_id     Int      @id @default(autoincrement())
+  team_id       Int?
+  first_name    String?
+  last_name     String?
+  date_of_birth DateTime?
+  address       String?
+  school        String?
+  grade_level   String?
+  teacher       String?
+  shirt_size    String?
+
+  team   team?   @relation(fields: [team_id], references: [team_id])
+  waiver waiver?
+}
+
+model waiver {
+  player_id              Int     @id
+  p1_first_name          String?
+  p1_last_name           String?
+  p1_email               String?
+  p1_phone               String?
+  p2_first_name          String?
+  p2_last_name           String?
+  p2_email               String?
+  p2_phone               String?
+  emergency_name         String?
+  emergency_phone        String?
+  emergency_relation     String?
+  medical_conditions     String?
+  emergency_care_consent Boolean?
+  liability_waiver       Boolean?
+  photo_permission       Boolean?
+  volunteer_interest     Boolean?
+  walk_home_permission   Boolean?
+  travel_permission      Boolean?
+  general_waiver_signed  Boolean?
+  signature              String?
+  submitted_at           DateTime?
+
+  player player @relation(fields: [player_id], references: [player_id])
+}

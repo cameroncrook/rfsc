@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // Modules
-import MainNav from "../../components/mainNav";
+import MainNav from "@/components/mainNav";
 import styles from "./page.module.css";
 
 export default function Register() {
