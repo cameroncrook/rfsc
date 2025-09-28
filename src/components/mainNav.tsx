@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 type MainNaveProps = {
     lightMode?: boolean; 
@@ -12,13 +13,13 @@ const MainNav: React.FC<MainNaveProps> = ({ lightMode }) => (
         </div>
 
         <nav className={`hidden md:flex items-center space-x-8 ${lightMode ? 'text-gray-200' : 'text-gray-600'}`}>
-            <a className="hover:text-primary transition-colors" href="/">Home</a>
-            <a className="hover:text-primary transition-colors" href="/schedule">Schedule</a>
-            <a className="hover:text-primary transition-colors" href="/contact">Contact</a>
-            <a className="hover:text-primary transition-colors" href="/about">About</a>
+            <Link className="hover:text-primary transition-colors" href="/">Home</Link>
+            <Link className="hover:text-primary transition-colors" href="/schedule">Schedule</Link>
+            <Link className="hover:text-primary transition-colors" href="/contact">Contact</Link>
+            <Link className="hover:text-primary transition-colors" href="/about">About</Link>
         </nav>
 
-        <a className="bg-primary/90 text-white px-6 py-2 rounded-full hover:bg-primary transition-colors hidden md:block" href="/register">Register to Play!</a>
+        <Link className="bg-primary/90 text-white px-6 py-2 rounded-full hover:bg-primary transition-colors hidden md:block" href="/register">Register to Play!</Link>
         <button className="md:hidden">
             <span className={`material-icons ${lightMode ? 'text-gray-200' : 'text-gray-800'}`}>menu</span>
         </button>
