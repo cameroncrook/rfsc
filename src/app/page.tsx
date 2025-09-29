@@ -2,6 +2,7 @@ import Image from "next/image";
 
 // Modules
 import MainNav from "@/components/mainNav";
+import MainFooter from "@/components/mainFooter";
 
 export default function Home() {
   return (
@@ -99,6 +100,7 @@ export default function Home() {
           </section>
         </div>
       </main>
+      <MainFooter />
     </div>
   );
 }

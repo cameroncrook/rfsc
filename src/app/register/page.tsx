@@ -3,6 +3,7 @@ import Image from "next/image";
 // Modules
 import MainNav from "@/components/mainNav";
 import styles from "./page.module.css";
+import MainFooter from "@/components/mainFooter";
 
 export default function Register() {
     return (
@@ -195,6 +196,7 @@ export default function Register() {
                 </form>
                 
             </main>
+            <MainFooter />
         </div>
     );
 }

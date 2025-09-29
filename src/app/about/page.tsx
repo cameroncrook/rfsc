@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 // Modules
-import MainNav from "@/components/mainNav"
+import MainNav from "@/components/mainNav";
+import MainFooter from "@/components/mainFooter";
 
 export default function About() {
     return (
@@ -54,6 +55,7 @@ export default function About() {
                     </div>
                 </div>
             </main>
+            <MainFooter />
         </div>
     );
 }

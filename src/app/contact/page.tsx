@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 // Modules
-import MainNav from "@/components/mainNav"
+import MainNav from "@/components/mainNav";
+import MainFooter from "@/components/mainFooter";
 
 export default function Contact() {
     return (
@@ -69,6 +70,7 @@ export default function Contact() {
                     </form>
                 </div>
             </main>
+            <MainFooter />
         </div>
     );
 }
