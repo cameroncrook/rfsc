@@ -47,13 +47,13 @@ export default function ContactForm() {
             <div>
                 <label className="block text-sm font-medium text-gray-700" htmlFor={"name"}>Your Name</label>
                 <div className="mt-1">
-                <input className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" type="text"/>
+                <input className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" type="text" required/>
             </div>
             </div>
             <div>
                 <label className="block text-sm font-medium text-gray-700" htmlFor={"email"}>Your Email</label>
                 <div className="mt-1">
-                    <input className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" type="email"/>
+                    <input className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" type="email" required/>
                 </div>
             </div>
             <div>

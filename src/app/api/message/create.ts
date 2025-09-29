@@ -23,7 +23,7 @@ export async function createMessage(request: Request) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: `Failed to create post ${error}` }), {
+    return new Response(JSON.stringify({ error: `Failed to create message ${error}` }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
