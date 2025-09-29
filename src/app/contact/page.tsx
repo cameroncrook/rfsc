@@ -3,6 +3,7 @@ import Image from "next/image";
 // Modules
 import MainNav from "@/components/mainNav";
 import MainFooter from "@/components/mainFooter";
+import ContactForm from "./ContactForm";
 
 export default function Contact() {
     return (
@@ -39,35 +40,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <form className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700" htmlFor={"name"}>Your Name</label>
-                            <div className="mt-1">
-                            <input className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="name" name="name" placeholder="Enter your name" type="text"/>
-                        </div>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700" htmlFor={"email"}>Your Email</label>
-                            <div className="mt-1">
-                                <input className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="email" name="email" placeholder="Enter your email" type="email"/>
-                            </div>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700" htmlFor={"subject"}>Subject</label>
-                            <div className="mt-1">
-                                <input className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="subject" name="subject" placeholder="Enter the subject" type="text"/>
-                            </div>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700" htmlFor={"message"}>Message</label>
-                            <div className="mt-1">
-                                <textarea className="block w-full rounded-lg border-gray-300 bg-background-light shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-3 px-4" id="message" name="message" placeholder="Enter your message" rows={4}></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <button className="flex w-full justify-center rounded-lg bg-primary py-3 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer" type="submit">Send Message</button>
-                        </div>
-                    </form>
+                    <ContactForm />
                 </div>
             </main>
             <MainFooter />
