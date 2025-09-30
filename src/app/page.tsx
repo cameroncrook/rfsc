@@ -72,7 +72,7 @@ export default function Home() {
                 <p className="text-gray-800">306 N 3700 E, Rigby, ID 83442</p>
               </div>
               <p className="text-2xl text-gray-500 mb-6">OR</p>
-              <p className="text-gray-600"><a className="text-primary font-semibold hover:underline" href="#">Send us a message</a> and we can help you donate.</p>
+              <p className="text-gray-600"><a className="text-primary font-semibold hover:underline" href="/contact">Send us a message</a> and we can help you donate.</p>
             </div>
           </section>
 
