@@ -52,13 +52,12 @@ model game {
   game_id  Int      @id @default(autoincrement())
   name     String
   date     DateTime
-  time     DateTime
   location String?
-  home     Int
-  away     Int
+  home     Int?
+  away     Int?
 
-  home_team team @relation("HomeTeam", fields: [home], references: [team_id])
-  away_team team @relation("AwayTeam", fields: [away], references: [team_id])
+  home_team team? @relation("HomeTeam", fields: [home], references: [team_id])
+  away_team team? @relation("AwayTeam", fields: [away], references: [team_id])
 }
 
 model player {
