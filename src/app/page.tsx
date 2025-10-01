@@ -41,7 +41,11 @@ export default async function Home() {
             <div className="container mx-auto px-6">
               <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Upcoming Events</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {games.map(game => <GameCard key={game.game_id} data={game} />)}
+                {games.length && games.length > 0 ? (
+                    games.map(game => <GameCard key={game.game_id} data={game} />)
+                ) : (
+                    <p className="text-center py-6 col-span-3 text-gray-600">No upcoming games. Check back later!</p>
+                )}
               </div>
             </div>
           </section>
