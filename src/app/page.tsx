@@ -1,10 +1,18 @@
 import Image from "next/image";
+import prisma from "@/lib/prisma";
 
 // Modules
 import MainNav from "@/components/mainNav";
 import MainFooter from "@/components/mainFooter";
+import GameCard from "@/components/GameCard";
 
-export default function Home() {
+export default async function Home() {
+  
+  const games = await prisma.game.findMany({
+    orderBy: { date: "asc" },
+    take: 3,
+  });
+
   return (
     <div>
       <header className="row-start-1 w-full bg-[url(https://static.wixstatic.com/media/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg/v1/fill/w_599,h_580,al_b,q_80,enc_avif,quality_auto/64980d_39bcbf63560941a5920bf8be1051397f~mv2.jpg)] bg-cover bg-center bg-gray-600 bg-blend-overlay">
@@ -33,32 +41,7 @@ export default function Home() {
             <div className="container mx-auto px-6">
               <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Upcoming Events</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
-                  <div className="bg-primary/10 p-4 rounded-full mb-4">
-                    <span className="material-icons text-primary text-4xl">event</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800">FMS vs RMS</h3>
-                  <p className="text-gray-500 mb-2">August 28 @5:00PM 2025</p>
-                  <p className="text-gray-600">Join us at the Rigby High School Field</p>
-                </div>
-
-                <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
-                  <div className="bg-primary/10 p-4 rounded-full mb-4">
-                    <span className="material-icons text-primary text-4xl">event</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800">FMS vs RMS</h3>
-                  <p className="text-gray-500 mb-2">August 28 @5:00PM 2025</p>
-                  <p className="text-gray-600">Join us at the Rigby High School Field</p>
-                </div>
-
-                <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
-                  <div className="bg-primary/10 p-4 rounded-full mb-4">
-                    <span className="material-icons text-primary text-4xl">event</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800">FMS vs RMS</h3>
-                  <p className="text-gray-500 mb-2">August 28 @5:00PM 2025</p>
-                  <p className="text-gray-600">Join us at the Rigby High School Field</p>
-                </div>
+                {games.map(game => <GameCard key={game.game_id} data={game} />)}
               </div>
             </div>
           </section>

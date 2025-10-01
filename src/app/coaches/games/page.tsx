@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import Game from "@/app/coaches/components/Game";
+import AddGame from "./AddGame";
 
 export default async function games() {
     const games = await prisma.game.findMany();
@@ -7,6 +8,8 @@ export default async function games() {
     return (
         <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-8">Games Manager</h1>
+
+            <AddGame />
             
             <div className="bg-white border border-black/10 rounded-xl overflow-hidden">
                 <div className="overflow-x-auto">

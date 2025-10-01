@@ -16,7 +16,7 @@ export default async function player() {
                                 <th className="px-6 py-4 text-sm font-semibold text-black/70">First Name</th>
                                 <th className="px-6 py-4 text-sm font-semibold text-black/70">Last Name</th>
                                 <th className="px-6 py-4 text-sm font-semibold text-black/70">School</th>
-                                <th className="px-6 py-4 text-sm font-semibold text-black/70 hidden lg:table-cell">Grade Level</th>
+                                <th className="px-6 py-4 text-sm font-semibold text-black/70">Grade Level</th>
                                 <th className="px-6 py-4 text-sm font-semibold text-black/70 text-right">Actions</th>
                             </tr>
                         </thead>
