@@ -38,6 +38,7 @@ model message {
   email      String?
   subject    String?
   message    String?
+  date       DateTime @default(now())
 }
 
 model team {
