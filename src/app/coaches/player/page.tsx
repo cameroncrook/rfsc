@@ -2,7 +2,11 @@ import prisma from '@/lib/prisma';
 import Player from '@/app/coaches/components/Player';
 
 export default async function player() {
-    const players = await prisma.player.findMany();
+    const players = await prisma.player.findMany({
+        include: {
+            waiver: true,
+        },
+    });
 
     return (
         <div>
