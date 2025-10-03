@@ -3,7 +3,9 @@ import Game from "@/app/coaches/components/Game";
 import AddGame from "./AddGame";
 
 export default async function games() {
-    const games = await prisma.game.findMany();
+    const games = await prisma.game.findMany({
+        orderBy: { date: 'asc' }
+    });
 
     return (
         <div>
