@@ -51,7 +51,7 @@ const Game: React.FC<GameProps> = ({data}) => {
                     </>
                 ) : (
                     <>
-                    <button className="text-green-500 hover:text-green-400 p-2 rounded-full transtion-colors cursor-pointer"><span className="material-symbols-outlined">check</span></button>
+                    <button onClick={handleDelete} className="text-green-500 hover:text-green-400 p-2 rounded-full transtion-colors cursor-pointer"><span className="material-symbols-outlined">check</span></button>
                     <button onClick={handleCancleDelete} className="text-red-500 hover:text-red-400 p-2 rounded-full transtion-colors cursor-pointer"><span className="material-symbols-outlined">cancel</span></button>
                     </>
                 )}

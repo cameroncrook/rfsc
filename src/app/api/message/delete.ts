@@ -10,7 +10,7 @@ export async function deleteMessage(request: Request) {
 
   try {
     const { message_id } = await request.json();
-    const message = await prisma.message.delete({
+    await prisma.message.delete({
       where: {
         message_id,
       },

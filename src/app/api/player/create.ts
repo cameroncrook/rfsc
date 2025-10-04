@@ -31,7 +31,7 @@ export async function createPlayer(request: Request) {
         });
 
         // Add waiver to db
-        const waiver = await prisma.waiver.create({
+        await prisma.waiver.create({
             data: {
                 player_id: player.player_id,
                 p1_first_name, 

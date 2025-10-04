@@ -15,7 +15,7 @@ export default function AddGame() {
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const form = e.currentTarget;
-        const formDataObj: Record<string, any> = {};
+        const formDataObj: Record<string, string | File> = {};
         const formData = new FormData(form);
         formData.forEach((value, key) => {
             formDataObj[key] = value;
