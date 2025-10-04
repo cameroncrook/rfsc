@@ -4,9 +4,7 @@ import prisma from "@/lib/prisma";
 // Modules
 import MainNav from "@/components/mainNav";
 import MainFooter from "@/components/mainFooter";
-import GameCard from "@/components/GameCard";
-
-/! Follow design in Stitch but instead just go by month and show date with big bold letters. Vertical list with Date and then list of games. Display for entire month./ 
+import GameCard from "@/components/GameCard"; 
 
 export default async function Schedule() {
     const games = await prisma.game.findMany({

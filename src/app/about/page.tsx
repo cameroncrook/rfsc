@@ -21,7 +21,7 @@ export default function About() {
                         <p className="text-gray-500">Founder</p>
                     </div>
                     <div className="lg:w-2/3 text-gray-600 leading-relaxed space-y-4">
-                        <p>My name is Alex Greenfield. I live in Rexburg with my wife and our three daughters. I’ve been teaching for over 25 years. I am from New York City. I graduated from Colgate University in 1993.</p>
+                        <p>My name is Alex Greenfield. I live in Rexburg with my wife and our three daughters. I&#39;ve been teaching for over 25 years. I am from New York City. I graduated from Colgate University in 1993.</p>
                         <p>I&#39;m currently the Department Head for Special Education at Farnsworth Middle School an I&#39;m a doctoral program and own Mamoru Martial Arts. I started Rigby Free Soccer at RMS six years ago after two guidance counselor friends (Kim Aebil and Devvin Johnson) gave me the idea. We noticed that certain demographics were underperforming academically and behaviorally and thought if we motivated them with a sport they love, they would achieve more. The stat-geatistics indicated that students who participated in the program had better attendance!</p>
                         <p>We started out with five students and have now served close to 1000. We survive on volunteerism and fundraising. Our annual budget is about $6,000. All the funds we raise go directly to the students via coaches, referees, and t-shirts. There is no administrative expenditure. I take no salary. We would love the program to continue.</p>
                         <p>We need donations. You can find the donation button on our home page and at the top of every page.</p>
@@ -35,7 +35,7 @@ export default function About() {
 
                         <h3 className="text-xl font-semibold text-gray-800">Austin Barnes</h3>
                         <p className="text-gray-500 mb-4">Coach</p>
-                        <p className="text-gray-600 leading-relaxed">I'm Austin Barnes, I was born and raised in Idaho Falls, Idaho. I am married to my beautiful wife Rachel. Together we attend BYU-I. There I am studying Software Engineering. Since I was little I have loved and played soccer! My favorite professional team is FC Barcelona. When I am not studying or playing soccer I enjoy playing games, watching movies, and spending time with my family.</p>
+                        <p className="text-gray-600 leading-relaxed">I&#39;m Austin Barnes, I was born and raised in Idaho Falls, Idaho. I am married to my beautiful wife Rachel. Together we attend BYU-I. There I am studying Software Engineering. Since I was little I have loved and played soccer! My favorite professional team is FC Barcelona. When I am not studying or playing soccer I enjoy playing games, watching movies, and spending time with my family.</p>
                     </div>
 
                     <div className="text-center">
