@@ -1,14 +1,17 @@
 "use client";
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 // imports
 import styles from "./page.module.css";
 
 export default function RegistrationForm() {
+    const [isSending, setIsSending] = useState(false);
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsSending(true);
         const form = e.currentTarget;
         const formDataObj: Record<string, string | File> = {};
         const formData = new FormData(form);
@@ -212,7 +215,7 @@ export default function RegistrationForm() {
         </div>
 
         <div className="text-center mt-8">
-            <button className="bg-red-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-lg" type="submit">Submit</button>
+            <button className={`${isSending ? 'bg-gray-600' : 'bg-primary hover:bg-primary/80'} text-white font-bold py-3 px-8 rounded-lg duration-300 shadow-lg`} type="submit" disabled={isSending}>{isSending ? 'Registering' : 'Register'}</button>
         </div>
     </form>
 }

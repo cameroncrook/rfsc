@@ -3,6 +3,9 @@
 import { useState } from 'react';
 
 export default function ContactForm() {
+    const [isSending, setIsSending] = useState(false);
+    const [messageSent, setMessageSent] = useState(false);
+    const [messageError, setMessageError] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -20,6 +23,7 @@ export default function ContactForm() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsSending(true);
         try {
             const response = await fetch('/api/message', {
                 method: 'POST',
@@ -33,16 +37,23 @@ export default function ContactForm() {
                 // Handle successful submission (e.g., show a success message)
                 console.log('Message sent successfully');
                 setFormData({ name: '', email: '', subject: '', message: '' });
+                setIsSending(false);
+                setMessageSent(true);
             } else {
                 // Handle errors (e.g., show an error message)
                 console.error('Failed to send message');
+                setMessageError(true);
             }
         } catch (error) {
             console.error('An error occurred:', error);
+            setMessageError(true);
         }
     };
 
     return (
+        <>
+        {messageSent && <div className="mb-4 p-4 text-green-800 bg-green-100 rounded-lg">Your message has been sent!</div>}
+        {messageError && <div className="mb-4 p-4 text-red-800 bg-red-100 rounded-lg">There was an error sending your message. Please refresh the page and try again.</div>}
         <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
                 <label className="block text-sm font-medium text-gray-700" htmlFor={"name"}>Your Name</label>
@@ -69,8 +80,9 @@ export default function ContactForm() {
                 </div>
             </div>
             <div>
-                <button className="flex w-full justify-center rounded-lg bg-primary py-3 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer" type="submit">Send Message</button>
+                <button className={`flex w-full justify-center rounded-lg bg-primary py-3 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer`} type="submit" disabled={isSending}>{isSending ? 'Sending' : 'Send Message'}</button>
             </div>
         </form>
+        </>
     )
 }
