@@ -75,9 +75,9 @@ export default function RegistrationForm() {
                     <label><input name="shirt_size" type="radio" value="xs" /> X-Small</label>
                     <label><input name="shirt_size" type="radio" value="s" /> Small</label>
                     <label><input name="shirt_size" type="radio" value="m" /> Medium</label>
-                    <label><input name="shirt_size" type="radio" value="l" /> Large</label>
-                    <label><input name="shirt_size" type="radio" value="xl" /> X-Large</label>
-                    <label><input name="shirt_size" type="radio" value="xxl" /> XX-Large</label>
+                    <label><input name="shirt_size" type="radio" value="L" /> Large</label>
+                    <label><input name="shirt_size" type="radio" value="XL" /> X-Large</label>
+                    <label><input name="shirt_size" type="radio" value="XXL" /> XX-Large</label>
                 </div>
             </div>
         </div>
