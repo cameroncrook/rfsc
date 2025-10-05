@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import prisma from "@/lib/prisma";
 import Game from "@/app/coaches/components/Game";
 import AddGame from "./AddGame";
