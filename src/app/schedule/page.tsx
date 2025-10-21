@@ -8,7 +8,11 @@ import MainFooter from "@/components/mainFooter";
 import GameCard from "@/components/GameCard"; 
 
 export default async function Schedule() {
+    const today = new Date();
     const games = await prisma.game.findMany({
+        where: {
+            date: { gte: today }
+        },
         orderBy: { date: 'asc'}
     });
 

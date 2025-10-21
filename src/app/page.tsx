@@ -10,7 +10,11 @@ import GameCard from "@/components/GameCard";
 
 export default async function Home() {
   
+  const today = new Date();
   const games = await prisma.game.findMany({
+    where: {
+      date: { gte: today }
+    },
     orderBy: { date: "asc" },
     take: 3,
   });
