@@ -12,7 +12,17 @@ type PlayerActionsProps = {
 
 export default function PlayerActions({ players }: PlayerActionsProps) {
     const handleExport = () => {
-        const worksheet = XLSX.utils.json_to_sheet(players);
+        const playerData = players.map(player => {
+            const dobFormatted = player.date_of_birth
+                ? player.date_of_birth.toLocaleDateString()
+                : undefined;
+
+            const submittedFormatted = player.waiver?.submitted_at ? player.waiver.submitted_at.toLocaleDateString() : undefined;
+
+            return {...player, date_of_birth: dobFormatted, ...player.waiver, submitted_at: submittedFormatted };
+        });
+
+        const worksheet = XLSX.utils.json_to_sheet(playerData);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, 'Players');
         XLSX.writeFile(workbook, 'players.xlsx');
