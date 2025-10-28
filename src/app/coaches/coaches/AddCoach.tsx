@@ -30,6 +30,8 @@ export default function AddCoach() {
                 body: JSON.stringify(formDataObj),
             });
 
+            console.log(response);
+
             if (response.ok) {
                 router.refresh();
                 form.reset();
