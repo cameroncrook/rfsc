@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import crypto from 'crypto';
 
 export async function createCoach(request: Request) {
     if (request.method !== 'POST') {
@@ -10,11 +11,32 @@ export async function createCoach(request: Request) {
 
     try {
         const { email } = await request.json();
-        await prisma.coach.create({
+        const coach = await prisma.coach.create({
             data: {
                 email,
             },
         });
+
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 30); // Token valid for 30 days
+
+        // Generate a secure random token and store only its SHA-256 hash in the DB.
+        // Right now we are only storing the raw token for development purposes.
+        // In the future store only hashed value and send raw token via email.
+        const token = crypto.randomBytes(32).toString('hex'); // 64 hex chars
+        // const tokenHash = crypto.createHash('sha256').update(token).digest('hex');
+
+        const passwordToken = await prisma.passwordToken.create({
+            data: {
+                coach_id: coach.coach_id,
+                tokenHash: token,
+                expiresAt: expirationDate,
+            }
+        });
+
+        // For development: log the raw token so you can copy it into an email flow.
+        // DO NOT log/send this value in production. Use an email service to send the token.
+        console.log('Password reset token (send via email):', token);
 
         return new Response(JSON.stringify({ message: 'Coach created Successfully' }), {
             status: 200,
