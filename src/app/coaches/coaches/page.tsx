@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import Coach from "../components/Coach";
 
 export default async function coaches() {
-    const coaches = await prisma.coach.findMany();
+    const coaches = await prisma.coach.findMany({include: { PasswordToken: true }});
 
     return (
         <div>

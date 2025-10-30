@@ -1,11 +1,13 @@
 'use client';
 
 import React from "react";
-import type { coach as CoachType } from '@prisma/client';
 import { useState } from "react";
+import type { Prisma } from '@prisma/client';
+
+type CoachWithToken = Prisma.coachGetPayload<{ include: { PasswordToken: true } }>;
 
 type CoachProps = {
-    data: CoachType;
+    data: CoachWithToken;
 }
 
 const Coach: React.FC<CoachProps> = ({data}) => {
@@ -26,7 +28,9 @@ const Coach: React.FC<CoachProps> = ({data}) => {
         </tr>
         {isViewing && (
             <tr>
-                <td colSpan={3}>Viewing</td>
+                <td colSpan={3} className="p-4">
+                    <a href={`/coach/register/${data.PasswordToken[0]?.tokenHash}`}>Registration Link</a>
+                </td>
             </tr>
         )}
         </>

@@ -12,12 +12,6 @@ export default function DashboardLayout({
                     <h1 className="text-xl font-bold text-gray-900">Coaches</h1>
                 </div>
                 <nav className="flex-1 px-4 py-2 space-y-1">
-                    <Link href="/coaches" className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 hover:bg-primary/10">
-                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"></path>
-                        </svg>
-                        <span className="text-sm font-medium">Dashboard</span>
-                    </Link>
                     <Link href="/coaches/messages" className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 hover:bg-primary/10">
                         <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path>
