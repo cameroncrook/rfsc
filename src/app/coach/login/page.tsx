@@ -1,3 +1,5 @@
+import LoginForm from "./LoginForm";
+
 export default function Login() {
     return (
         <div>
@@ -7,6 +9,7 @@ export default function Login() {
                 <p className="text-gray-500 mb-6">Welcome back! Please enter your credentials.</p>
             </div>
             
+            <LoginForm />
         </div>
     )
 }

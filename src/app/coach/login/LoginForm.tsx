@@ -21,15 +21,33 @@ export default function LoginForm() {
         });
 
         try {
+            const response = await fetch('/api/coach/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataObj),
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                router.push('/coaches/messages');
+            } else {
+                setErrorMessage(data.message);
+                setIsSubmitting(false);
+                return;
+            }
 
         } catch (err) {
+            console.log(err);
             setErrorMessage('Failed to login');
             return;
         }
     }
 
     return (
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
+            {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
             <div>
                 <label className="block text-sm font-medium text-gray-700" htmlFor="email">Email</label>
                 <div className="mt-1">
@@ -48,7 +66,7 @@ export default function LoginForm() {
                 </div>
             </div>
             <div>
-                <button className="flex w-full justify-center rounded-lg bg-primary py-3 px-4 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white" type="submit">Login</button>
+                <button className="flex w-full justify-center rounded-lg bg-primary py-3 px-4 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white" type="submit" disabled={isSubmitting}>Login</button>
             </div>
         </form>
     )
