@@ -3,9 +3,11 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
     const router = useRouter();
+    
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -20,29 +22,37 @@ export default function LoginForm() {
             formDataObj[key] = value;
         });
 
-        try {
-            const response = await fetch('/api/coach/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formDataObj),
-            });
-            const data = await response.json();
+        const coach = await signIn('credentials', {
+            email: formDataObj.email,
+            password: formDataObj.password,
+            callbackUrl: '/coaches/messages',
+        })
 
-            if (response.ok) {
-                router.push('/coaches/messages');
-            } else {
-                setErrorMessage(data.message);
-                setIsSubmitting(false);
-                return;
-            }
+        console.log(coach);
 
-        } catch (err) {
-            console.log(err);
-            setErrorMessage('Failed to login');
-            return;
-        }
+        // try {
+        //     const response = await fetch('/api/coach/login', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(formDataObj),
+        //     });
+        //     const data = await response.json();
+
+        //     if (response.ok) {
+        //         router.push('/coaches/messages');
+        //     } else {
+        //         setErrorMessage(data.message);
+        //         setIsSubmitting(false);
+        //         return;
+        //     }
+
+        // } catch (err) {
+        //     console.log(err);
+        //     setErrorMessage('Failed to login');
+        //     return;
+        // }
     }
 
     return (

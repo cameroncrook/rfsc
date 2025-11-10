@@ -1,6 +1,7 @@
 import LoginForm from "./LoginForm";
 
 export default function Login() {
+
     return (
         <div>
             <div className="flex flex-col items-center space-y-2 text-center">
