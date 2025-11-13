@@ -12,7 +12,7 @@ export async function RegisterCoach(request: Request) {
     try {
         const { token, first_name, last_name, password } = await request.json();
 
-        const coachToken = await prisma.passwordToken.findFirst({
+        const coachToken = await prisma.password_token.findFirst({
             where: {
                 tokenHash: token,
                 expiresAt: { gt: new Date() },
@@ -37,7 +37,7 @@ export async function RegisterCoach(request: Request) {
             },
         });
 
-        await prisma.passwordToken.delete({
+        await prisma.password_token.delete({
             where: { id: coachToken.id}
         })
 

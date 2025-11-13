@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import type { Prisma } from '@prisma/client';
 
-type CoachWithToken = Prisma.coachGetPayload<{ include: { PasswordToken: true } }>;
+type CoachWithToken = Prisma.coachGetPayload<{ include: { password_token: true } }>;
 
 type CoachProps = {
     data: CoachWithToken;
@@ -15,6 +15,24 @@ const Coach: React.FC<CoachProps> = ({data}) => {
     
     function handleViewToggle() {
         setIsViewing(!isViewing);
+    }
+
+    async function handleShare() {
+        const shareData = {
+            title: 'Coach Registration Link',
+            text: 'Use the link below to register as a coach:',
+            url: `${window.location.origin}/coach/register/${data.password_token[0]?.tokenHash}`,
+        }
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                alert('Oops, something went wrong');
+            }
+        } else {
+            alert('Sharing not supported on this browser. Please copy the link: ' + shareData.url);
+        }
     }
 
     return (
@@ -29,7 +47,43 @@ const Coach: React.FC<CoachProps> = ({data}) => {
         {isViewing && (
             <tr>
                 <td colSpan={3} className="p-4">
-                    <a href={`/coach/register/${data.PasswordToken[0]?.tokenHash}`}>Registration Link</a>
+                    <div>
+                        <strong>Access Permissions:</strong>
+                        <form>
+                            <div className="flex flex-col space-y-2 mt-4">
+                            
+                                <div className="flex align-center space-x-3">
+                                    <input type="checkbox" id="messages_access" name="messages_access" defaultChecked={!!data.messages_access} />
+                                    <label htmlFor="messages_access">Messages Access</label>
+                                </div>
+
+                                <div className="flex align-center space-x-3">
+                                    <input type="checkbox" id="games_access" name="games_access" defaultChecked={!!data.games_access} />
+                                    <label htmlFor="games_access">Games Access</label>
+                                </div>
+
+                                <div className="flex align-center space-x-3">
+                                    <input type="checkbox" id="player_access" name="player_access" defaultChecked={!!data.player_access} />
+                                    <label htmlFor="player_access">Player Access</label>
+                                </div>
+
+                                <div className="flex align-center space-x-3">
+                                    <input type="checkbox" id="coaches_access" name="coaches_access" defaultChecked={!!data.coaches_access} />
+                                    <label htmlFor="coaches_access">Coaches Access</label>
+                                </div>
+
+                            </div>
+
+                            <button type="submit" className="mt-4 bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors cursor-pointer">Update Permissions</button>
+                        </form>
+                    </div>
+                    <div className="flex flex-col space-y-2 mt-4">
+                        <strong>Settings:</strong>
+                        {data.password_token[0] && (
+                            <button onClick={handleShare} className="bg-green-500 text-white p-2 rounded-md cursor-pointer hover:bg-green-600">Send registration link</button>
+                        )}
+                        <button className="bg-red-500 text-white p-2 rounded-md cursor-pointer hover:bg-red-600">Delete Coach</button>
+                    </div>
                 </td>
             </tr>
         )}

@@ -13,3 +13,7 @@ export function formatGameDate(date: Date) {
     const [monthDay, year, time] = formatted.match(/^([A-Za-z]+ \d+), (\d+), (.+)$/)!.slice(1);
     return `${monthDay} @${time.replace(' ', '')} ${year}`;
 }
+
+export function convertCheckboxToBoolean(value: string | undefined): boolean {
+    return value === 'on' ? true : false;
+}

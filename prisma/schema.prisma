@@ -19,10 +19,10 @@ model coach {
   player_access   Boolean?
   coaches_access  Boolean?
 
-  PasswordToken PasswordToken[]
+  password_token password_token[]
 }
 
-model PasswordToken {
+model password_token {
   id            String   @id @default(uuid())
   coach_id      Int
   tokenHash     String

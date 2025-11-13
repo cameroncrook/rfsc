@@ -34,11 +34,10 @@ export default function AddCoach() {
                 body: JSON.stringify(formDataObj),
             });
 
-            console.log(response);
-
             if (response.ok) {
                 router.refresh();
                 form.reset();
+                setIsSubmitting(false);
             } else {
                 alert('Failed to create coach');
                 setIsSubmitting(false);
