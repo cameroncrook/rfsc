@@ -1,10 +1,19 @@
 import Link from "next/link";
+import { getServerSession } from 'next-auth';
+import { redirect } from "next/navigation";
+import LogoutBtn from "./components/logoutBtn";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
+    const session = await getServerSession();
+
+    if (!session) {
+        redirect('/coach/login');
+    }
+
     return (
         <div className="min-h-screen flex">
             <aside className="w-64 border-r border-gray-200">
@@ -44,6 +53,8 @@ export default function DashboardLayout({
                     </svg>
                     <span className="text-sm font-medium">View Site</span>
                     </Link>
+                    <LogoutBtn />
+                    <p className="text-xs p-2">Logged in as: {session?.user?.name}</p>
                 </div>
             </aside>
             <main className="flex-1 p-8">

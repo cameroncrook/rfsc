@@ -22,13 +22,11 @@ export default function LoginForm() {
             formDataObj[key] = value;
         });
 
-        const coach = await signIn('credentials', {
+        await signIn('credentials', {
             email: formDataObj.email,
             password: formDataObj.password,
             callbackUrl: '/coaches/messages',
         })
-
-        console.log(coach);
 
         // try {
         //     const response = await fetch('/api/coach/login', {

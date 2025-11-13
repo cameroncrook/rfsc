@@ -4,6 +4,7 @@ import prisma from '@/lib/prisma';
 import Message from '@/app/coaches/components/Message';
 
 export default async function messages() {
+    
     const messages = await prisma.message.findMany();
 
     return (
