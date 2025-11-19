@@ -1,8 +1,18 @@
 import AddCoach from "./AddCoach";
+import { getServerSession } from "next-auth";
 import prisma from "@/lib/prisma";
 import Coach from "../components/Coach";
 
 export default async function coaches() {
+    const session = await getServerSession();
+    const coach = await prisma.coach.findUnique({
+        where: { email: session?.user?.email || ''},
+    })
+
+    if (!coach?.coaches_access) {
+        return <div>You do not have access to view this page.</div>;
+    }
+    
     const coaches = await prisma.coach.findMany({include: { password_token: true }});
 
     return (

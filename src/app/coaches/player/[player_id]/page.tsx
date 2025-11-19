@@ -1,3 +1,4 @@
+import { getServerSession } from "next-auth";
 import prisma from "@/lib/prisma";
 
 export default async function ViewPlayer({
@@ -5,6 +6,15 @@ export default async function ViewPlayer({
 }: {
     params: Promise<{ player_id: string }>
 }) {
+    const session = await getServerSession();
+    const coach = await prisma.coach.findUnique({
+        where: { email: session?.user?.email || ''},
+    })
+
+    if (!coach?.player_access) {
+        return <div>You do not have access to view this page.</div>;
+    }
+
     const { player_id } = await params;
     const player = await prisma.player.findUnique({
         include: { waiver: true },

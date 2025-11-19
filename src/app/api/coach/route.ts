@@ -1,5 +1,6 @@
 import { createCoach } from "./create";
 import { deleteCoach } from "./delete";
+import { updateCoachPermissions } from "./updatePermissions";
 
 export async function GET() {
     return Response.json({ 
@@ -9,6 +10,10 @@ export async function GET() {
 
 export async function POST(request: Request) {
     return createCoach(request);
+}
+
+export async function PUT(request: Request) {
+    return updateCoachPermissions(request);
 }
 
 export async function DELETE(request: Request) {

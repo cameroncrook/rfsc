@@ -7,8 +7,8 @@ type GameCardProps = {
 };
 
 const GameCard: React.FC<GameCardProps> = ({ data }) => (
-    <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
-        <div className="bg-primary/10 p-4 rounded-full mb-4">
+    <div className="bg-primary/20 rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:transform hover:-translate-y-2 transition-transform duration-300">
+        <div className="bg-gray-100 p-4 rounded-full mb-4">
         <span className="material-icons text-primary text-4xl">event</span>
         </div>
         <h3 className="text-xl font-bold text-gray-800">{data.name}</h3>

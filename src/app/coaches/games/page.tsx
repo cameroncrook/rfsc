@@ -1,10 +1,20 @@
 export const dynamic = "force-dynamic";
 
+import { getServerSession } from "next-auth";
 import prisma from "@/lib/prisma";
 import Game from "@/app/coaches/components/Game";
 import AddGame from "./AddGame";
 
 export default async function games() {
+    const session = await getServerSession();
+    const coach = await prisma.coach.findUnique({
+        where: { email: session?.user?.email || ''},
+    })
+
+    if (!coach?.games_access) {
+        return <div>You do not have access to view this page.</div>;
+    }
+
     const games = await prisma.game.findMany({
         orderBy: { date: 'asc' }
     });

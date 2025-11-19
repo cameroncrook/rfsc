@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { Prisma } from '@prisma/client';
 
 type CoachWithToken = Prisma.coachGetPayload<{ include: { password_token: true } }>;
@@ -11,10 +12,49 @@ type CoachProps = {
 }
 
 const Coach: React.FC<CoachProps> = ({data}) => {
+    const router = useRouter();
+
     const [isViewing, setIsViewing] = useState(false);
+    const [message, setMessage] = useState<string | null>(null);
     
     function handleViewToggle() {
         setIsViewing(!isViewing);
+    }
+
+    async function handleUpdatePermissions(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        const form = e.currentTarget;
+        const formDataObj: Record<string, string | File | Number> = {};
+        const formData = new FormData(form);
+        formData.forEach((value, key) => {
+            formDataObj[key] = value;
+        });
+        formDataObj['coach_id'] = data.coach_id;
+
+        try {
+            const response = await fetch('/api/coach', {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(formDataObj),
+            })
+
+            if (response) {
+                const resData = await response.json();
+                setMessage(resData.message);
+            }
+
+            if (response.ok) {
+                router.refresh();
+                form.reset();
+            } else {
+
+            }
+        } catch(err) {
+            console.error(err);
+        }
     }
 
     async function handleShare() {
@@ -47,9 +87,10 @@ const Coach: React.FC<CoachProps> = ({data}) => {
         {isViewing && (
             <tr>
                 <td colSpan={3} className="p-4">
+                    <p className="mb-4 text-green-600">{message}</p>
                     <div>
                         <strong>Access Permissions:</strong>
-                        <form>
+                        <form onSubmit={handleUpdatePermissions}>
                             <div className="flex flex-col space-y-2 mt-4">
                             
                                 <div className="flex align-center space-x-3">

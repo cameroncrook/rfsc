@@ -1,11 +1,21 @@
 export const dynamic = "force-dynamic";
 
+import { getServerSession } from 'next-auth';
 import prisma from '@/lib/prisma';
 import Player from '@/app/coaches/components/Player';
 
 import PlayerActions from './PlayerActions';
 
 export default async function player() {
+    const session = await getServerSession();
+    const coach = await prisma.coach.findUnique({
+        where: { email: session?.user?.email || ''},
+    })
+
+    if (!coach?.player_access) {
+        return <div>You do not have access to view this page.</div>;
+    }
+
     const players = await prisma.player.findMany({
         include: {
             waiver: true,

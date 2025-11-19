@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
-    const router = useRouter();
+    // const router = useRouter();
     
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -25,7 +25,7 @@ export default function LoginForm() {
         await signIn('credentials', {
             email: formDataObj.email,
             password: formDataObj.password,
-            callbackUrl: '/coaches/messages',
+            callbackUrl: '/coaches/',
         })
 
         // try {

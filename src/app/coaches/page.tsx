@@ -1,9 +1,33 @@
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { signOut } from "next-auth/react";
+import prisma from "@/lib/prisma";
 
+export default async function CoachesDashboard() {
+    
+    const session = await getServerSession();
+    const coach = await prisma.coach.findUnique({
+        where: { email: session?.user?.email || '' },
+    });
 
-export default function CoachesDashboard() {
+    if (!coach) {
+        redirect('/');
+    }
+
+    if (coach.messages_access) {
+        redirect('/coaches/messages');
+    } else if (coach.games_access) {
+        redirect('/coaches/games');
+    } else if (coach.player_access) {
+        redirect('/coaches/players');
+    } else if (coach.coaches_access) {
+        redirect('/coaches/manage');
+    }
+    
+
     return (
         <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-8">Dashboard</h1>
+            
             
         </div>
     );
