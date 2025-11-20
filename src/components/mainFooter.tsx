@@ -11,7 +11,7 @@ const MainFooter: React.FC = () => (
 
             <div>
             <p>208-557-3207</p>
-            <a href="mailto:cacrook@sd251.org" className="text-primary hover:underline">Email Us!</a>
+            <a href="mailto:agreenfield@sd251.org" className="text-primary hover:underline">Email Us!</a>
             </div>
         </div>
         <hr className="border-gray-700 my-8" />

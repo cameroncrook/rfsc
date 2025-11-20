@@ -27,6 +27,7 @@ const MainNav: React.FC<MainNaveProps> = ({ lightMode }) => {
             <Link className="hover:text-primary transition-colors" href="/schedule">Schedule</Link>
             <Link className="hover:text-primary transition-colors" href="/contact">Contact</Link>
             <Link className="hover:text-primary transition-colors" href="/about">About</Link>
+            <Link className="hover:text-primary transition-colors" href="/sponsors">Sponsors</Link>
         </nav>
 
         <Link className="bg-primary/90 text-white px-6 py-2 rounded-full hover:bg-primary transition-colors hidden md:block" href="/register">Register to Play!</Link>

@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import Image from "next/image";
+import Link from "next/link";
 import prisma from "@/lib/prisma";
 
 // Modules
@@ -72,23 +73,30 @@ export default async function Home() {
           <section className="py-20" id="sponsors">
             <div className="container mx-auto px-6">
               <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Sponsors</h2>
-              <div className="flex flex-wrap justify-center items-center gap-8">
-                <div className="bg-white rounded-lg shadow p-6 h-32 w-48 flex items-center justify-center">
-                  <Image alt="Sponsor logo placeholder" className="max-h-full max-w-full" src={"https://lh3.googleusercontent.com/aida-public/AB6AXuC871QQftkqkx87q1m9NdgAevIFqWFbQ5fD7TET3hs9hBfyLiJA_WT0u4fWFwLZoHVrfTDwTznzBZ1JXZT9x4q027dAbMVYirP9-_DPfmqTgjV11HS-e5INSak-N8S3Q62r2lyFZYCM4XU59rJOl7tJg0U-hAF3hDjg9ddppDK7i8EzNd1cFUNTVa2-fMMDVGjQ2zOvidsk2LfhytfisFhuR5FnB3xSGuUkZbHDE0tqMii0dMxIHAa_6x-mVyVtuW-4fUzdEqPkOQ"} width={100} height={100} />
-                </div>
+              <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
+                    <div className="md:flex">
+                        <div className="flex-shrink-0">
+                            <div className="h-64 md:h-full md:w-64 bg-cover bg-center bg-[url(https://lh3.googleusercontent.com/aida-public/AB6AXuAUM6veSK4IOdY1Yn24k0wJbKlNa7geaZrxE58lbSUEKK9Hd77VE1vd7Dx30L8mJ0YnXzVTFxn7qcILyus_K8TRM4hIqIW6JsVm0dOPlxPmLDxYq2aTG4uS7N-dNtX5znjEp4gCJlWIeIXGW5n6Dknte6xjP0HuDnESUmZlpaYYD2ZUN5Tq5vP3qbBFiPnMniJVMSJKWXsvKQtJtucdNRpfGBWUyh7yTcCB1BiJ8Rhf-wYihvCvmTAJk3SOLclYDCQv3s6juax9Qy0)]">
+                            </div>
+                        </div>
+                        <div className="p-8">
+                            <div className="uppercase tracking-wide text-sm text-primary font-semibold">Proud Sponsor</div>
+                            <h1 className="mt-2 text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Madison Memorial Hospital</h1>
 
-                <div className="bg-white rounded-lg shadow p-6 h-32 w-48 flex items-center justify-center">
-                  <Image alt="Sponsor logo placeholder" className="max-h-full max-w-full" src={"https://lh3.googleusercontent.com/aida-public/AB6AXuCAV8EQD2LmAfNON1eSQkrWnDidU-G4UxIqkjGAUjumgwjZPJyYT8jw8gxvdkMaXJroEOwc7SZ_6JXFYeEQmE0GWYn5McXj_e5p13gx2NWSaZ14fHf0NsKivK-1Y0K0cUb58tFBXhxPWx9S4v6bBc9vcVYjk6IHhpTyujiNBwCPg0CHTAz-RduGleuzchGRvBybLN_YFueYGqHzQPLuX42qSyNgpzAwdWmJRXNX08ub4jhOTL-yholMr9ImNKzuMvnoCbclOnbUug"} width={100} height={100} />
-                </div>
+                            <p className="mt-4 text-lg text-gray-600">
+                              The Rigby Soccer Club proudly thanks Madison Memorial Hospital for making free soccer possible in our community. Guided by their mission of professional and compassionate healthcare, they embody values we share on the field—respect, integrity, initiative, and teamwork. 
+                            </p>
 
-                <div className="bg-white rounded-lg shadow p-6 h-32 w-48 flex items-center justify-center">
-                  <Image alt="Sponsor logo placeholder" className="max-h-full max-w-full" src={"https://lh3.googleusercontent.com/aida-public/AB6AXuAPWg2e9Pnw_fsKUNHcojuBkrucRnJT8ba3LNwwbCSLTjn2zqcYfjHa1FxgwmMqOLSKpKjsKx6QKgBwyTO-95GSyBtKDgeDsoFw2bwprS5gjp3r-0z1KqQzohhqkIQx821xeCQwigL8BChrSAyO-qEJlippeOP-gX2GBAHqQZVMsXDq4q7yeNagaey-V6JZQBSjrqBchjtlw0633GBm6fFL65KzLKX_gF_0lbRgYR6XGAMUD3uarTp8J4ZTnXaTK1AjlLUAwV1ZYA"} width={100} height={100} />
-                </div>
+                            <p className="mt-2 text-lg text-gray-600">
+                              Their support ensures every child has the chance to play, grow, and belong. We are grateful for their commitment to building a stronger, healthier Rigby—one goal at a time.
+                            </p>
 
-                <div className="bg-white rounded-lg shadow p-6 h-32 w-48 flex items-center justify-center">
-                  <Image alt="Sponsor logo placeholder" className="max-h-full max-w-full" src={"https://lh3.googleusercontent.com/aida-public/AB6AXuBYEXSFLz_0Zo1jWILmBjBsVz_x-Ib3RJjDKTGu6WjAx3mSuBR2-tvVm0-jUyBfkxUSa3b1nCSa6Vl0-KU6_oJ4o2R8upzlvzMsCGOh5MxGDoxKY0JQYYPSM-cgBTCw4z5queGcaEh-yJ2uQK2BI6bCeAOO9fVVzKdK15lykgONTJg_1UGybgMps0tIgffDM0RnDCzmG17-BLpyTnxWdiEm2YPQPMR2IinH-0A0y8d1szjlaZ98_bPhj-402Q16v-A_xjiGpWi6wA"} width={100} height={100} />
+                            <div className="mt-6">
+                                <Link className="inline-block bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors duration-300" href={"https://madisonhealth.org/"}>Visit Their Website</Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
           </section>
         </div>

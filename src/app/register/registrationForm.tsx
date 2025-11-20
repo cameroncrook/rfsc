@@ -39,7 +39,7 @@ export default function RegistrationForm() {
 
     return <form onSubmit={handleSubmit}>
         <div className={`${styles.formSection}`}>
-            <h2 className={`${styles.formSectionTitle}`}>Player Information</h2>
+            <h2 className={`${styles.formSectionTitle} bg-primary/20 rounded-md p-2`}>Player Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className={`${styles.inputGroup}`}>
                     <label className={`${styles.inputLabel}`} htmlFor="first_name">First Name</label>
@@ -87,7 +87,7 @@ export default function RegistrationForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className={`${styles.formSection}`}>
-                <h2 className={`${styles.formSectionTitle}`}>Parent/Guardian 1 Information</h2>
+                <h2 className={`${styles.formSectionTitle} bg-primary/20 rounded-md p-2`}>Parent/Guardian 1 Information</h2>
 
                 <div className={`${styles.inputGroup}`}>
                     <label className={`${styles.inputLabel}`} htmlFor="p1_first_name">First Name</label>
@@ -108,7 +108,7 @@ export default function RegistrationForm() {
             </div>
 
             <div className={`${styles.formSection}`}>
-                <h2 className={`${styles.formSectionTitle}`}>Parent/Guardian 2 Information</h2>
+                <h2 className={`${styles.formSectionTitle} bg-primary/20 rounded-md p-2`}>Parent/Guardian 2 Information</h2>
 
                 <div className={`${styles.inputGroup}`}>
                     <label className={`${styles.inputLabel}`} htmlFor="p2_first_name">First Name</label>
@@ -130,7 +130,7 @@ export default function RegistrationForm() {
         </div>
 
         <div className={`${styles.formSection}`}>
-            <h2 className={`${styles.formSectionTitle}`}>Medical Information</h2>
+            <h2 className={`${styles.formSectionTitle} bg-primary/20 rounded-md p-2`}>Medical Information</h2>
 
             <div className={`${styles.inputGroup}`}>
                 <label className={`${styles.inputLabel}`} htmlFor="emergency_name">Emergency Contact Name</label>
@@ -167,7 +167,7 @@ export default function RegistrationForm() {
         </div>
 
         <div className={`${styles.formSection}`}>
-            <h2 className={`${styles.formSectionTitle}`}>Permission/Liability Waiver</h2>
+            <h2 className={`${styles.formSectionTitle} bg-primary/20 rounded-md p-2`}>Permission/Liability Waiver</h2>
 
             <div className={`${styles.inputGroup}`}>
                 <p className={`${styles.inputLabel}`}>May we photograph/video your child? Photos/images may be used on school and/or public displays, e.g. Facebook, website, newspaper articles.</p>
