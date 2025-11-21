@@ -29,7 +29,23 @@ export default function LoginForm() {
     }
 
     async function handlePasswordReset() {
-        setErrorMessage("Password reset link has been sent to your email.");
+
+        const email = (document.getElementById('email') as HTMLInputElement).value;
+        if (!email || email.trim() === "") {
+            setErrorMessage("Please enter your email address to reset your password.");
+            return;
+        }
+
+        const response = await fetch('/api/coach/reset', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+        })
+
+        const data = await response.json();
+        setErrorMessage(data.message);
     }
 
     return (
@@ -49,7 +65,7 @@ export default function LoginForm() {
             </div>
             <div className="flex items-center jsutify-between">
                 <div className="text-sm">
-                    <span className="font-medium text-primary hover:text-opacity-80" onClick={handlePasswordReset}>Forgot your password?</span>
+                    <button className="font-medium text-primary hover:text-opacity-80 cursor-pointer bg-transparent" onClick={handlePasswordReset}>Forgot your password?</button>
                 </div>
             </div>
             <div>
