@@ -61,7 +61,7 @@ const Coach: React.FC<CoachProps> = ({data}) => {
         const shareData = {
             title: 'Coach Registration Link',
             text: 'Use the link below to register as a coach:',
-            url: `${window.location.origin}/coach/register/${data.password_token[0]?.tokenHash}`,
+            url: `${window.location.origin}/coach/register/${data.password_token[0]?.token_hash}`,
         }
 
         if (navigator.share) {

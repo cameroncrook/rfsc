@@ -25,9 +25,9 @@ model coach {
 model password_token {
   id            String   @id @default(uuid())
   coach_id      Int
-  tokenHash     String
-  expiresAt     DateTime
-  createdAt     DateTime @default(now())
+  token_hash     String
+  expires_at     DateTime
+  created_at     DateTime @default(now())
 
   coach          coach     @relation(fields: [coach_id], references: [coach_id])
 }

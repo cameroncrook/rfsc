@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
@@ -27,30 +26,10 @@ export default function LoginForm() {
             password: formDataObj.password,
             callbackUrl: '/coaches/',
         })
+    }
 
-        // try {
-        //     const response = await fetch('/api/coach/login', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify(formDataObj),
-        //     });
-        //     const data = await response.json();
-
-        //     if (response.ok) {
-        //         router.push('/coaches/messages');
-        //     } else {
-        //         setErrorMessage(data.message);
-        //         setIsSubmitting(false);
-        //         return;
-        //     }
-
-        // } catch (err) {
-        //     console.log(err);
-        //     setErrorMessage('Failed to login');
-        //     return;
-        // }
+    async function handlePasswordReset() {
+        setErrorMessage("Password reset link has been sent to your email.");
     }
 
     return (
@@ -70,7 +49,7 @@ export default function LoginForm() {
             </div>
             <div className="flex items-center jsutify-between">
                 <div className="text-sm">
-                    <a className="font-medium text-primary hover:text-opacity-80" href="#">Forgot your password?</a>
+                    <span className="font-medium text-primary hover:text-opacity-80" onClick={handlePasswordReset}>Forgot your password?</span>
                 </div>
             </div>
             <div>

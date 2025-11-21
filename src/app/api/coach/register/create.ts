@@ -14,8 +14,8 @@ export async function RegisterCoach(request: Request) {
 
         const coachToken = await prisma.password_token.findFirst({
             where: {
-                tokenHash: token,
-                expiresAt: { gt: new Date() },
+                token_hash: token,
+                expires_at: { gt: new Date() },
             },
         });
 

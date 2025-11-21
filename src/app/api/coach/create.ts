@@ -34,8 +34,8 @@ export async function createCoach(request: Request) {
         await prisma.password_token.create({
             data: {
                 coach_id: coach.coach_id,
-                tokenHash: token,
-                expiresAt: expirationDate,
+                token_hash: token,
+                expires_at: expirationDate,
             }
         });
 
