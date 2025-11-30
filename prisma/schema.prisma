@@ -103,3 +103,10 @@ model waiver {
 
   player player @relation(fields: [player_id], references: [player_id])
 }
+
+model image {
+  id          Int      @id @default(autoincrement())
+  name        String
+  filename    String
+  uploaded_at DateTime @default(now())
+}

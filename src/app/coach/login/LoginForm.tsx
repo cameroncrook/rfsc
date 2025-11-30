@@ -28,7 +28,8 @@ export default function LoginForm() {
         })
     }
 
-    async function handlePasswordReset() {
+    async function handlePasswordReset(e?: React.MouseEvent<HTMLButtonElement>) {
+        e?.preventDefault();
 
         const email = (document.getElementById('email') as HTMLInputElement).value;
         if (!email || email.trim() === "") {
@@ -63,9 +64,9 @@ export default function LoginForm() {
                     <input autoComplete="current-password" className="block w-full rounded-lg border-gray-300 bg-white py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-primary sm:text-sm" id="password" name="password" type="password" required />
                 </div>
             </div>
-            <div className="flex items-center jsutify-between">
+            <div className="flex">
                 <div className="text-sm">
-                    <button className="font-medium text-primary hover:text-opacity-80 cursor-pointer bg-transparent" onClick={handlePasswordReset}>Forgot your password?</button>
+                    <button type="button" className="font-medium text-primary hover:text-opacity-80 cursor-pointer bg-transparent" onClick={handlePasswordReset}>Forgot your password?</button>
                 </div>
             </div>
             <div>
