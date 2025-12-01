@@ -11,13 +11,14 @@ export async function createCoach(request: Request) {
     }
 
     try {
-        const { email, messages_access, games_access, player_access, coaches_access } = await request.json();
+        const { email, messages_access, games_access, player_access, gallery_access, coaches_access } = await request.json();
         const coach = await prisma.coach.create({
             data: {
                 email,
                 messages_access: convertCheckboxToBoolean(messages_access), 
                 games_access: convertCheckboxToBoolean(games_access), 
                 player_access: convertCheckboxToBoolean(player_access), 
+                gallery_access: convertCheckboxToBoolean(gallery_access),
                 coaches_access: convertCheckboxToBoolean(coaches_access)
             },
         });

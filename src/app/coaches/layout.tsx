@@ -44,10 +44,12 @@ export default async function DashboardLayout({
                             <span className="text-sm font-medium">Player Manager</span>
                         </Link>
                     )}
+                    {coach?.gallery_access && (
                     <Link href="/coaches/gallery" className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 hover:bg-primary/10">
                         <span className="material-symbols-outlined">image</span>
                         <span className="text-sm font-medium">Gallery</span>
                     </Link>
+                    )}
                     {coach?.coaches_access && (
                         <Link href="/coaches/coaches" className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 hover:bg-primary/10">
                             <span className="material-symbols-outlined">manage_accounts</span>

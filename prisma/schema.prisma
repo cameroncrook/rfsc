@@ -17,6 +17,7 @@ model coach {
   messages_access Boolean?
   games_access    Boolean?
   player_access   Boolean?
+  gallery_access  Boolean?
   coaches_access  Boolean?
 
   password_token password_token[]

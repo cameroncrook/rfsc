@@ -20,6 +20,8 @@ export default async function CoachesDashboard() {
         redirect('/coaches/games');
     } else if (coach.player_access) {
         redirect('/coaches/players');
+    } else if (coach.gallery_access) {
+        redirect('/coaches/gallery');
     } else if (coach.coaches_access) {
         redirect('/coaches/manage');
     }

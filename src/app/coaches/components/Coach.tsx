@@ -109,6 +109,11 @@ const Coach: React.FC<CoachProps> = ({data}) => {
                                 </div>
 
                                 <div className="flex align-center space-x-3">
+                                    <input type="checkbox" id="gallery_access" name="gallery_access" defaultChecked={!!data.gallery_access} />
+                                    <label htmlFor="gallery_access">Gallery Access</label>
+                                </div>
+
+                                <div className="flex align-center space-x-3">
                                     <input type="checkbox" id="coaches_access" name="coaches_access" defaultChecked={!!data.coaches_access} />
                                     <label htmlFor="coaches_access">Coaches Access</label>
                                 </div>

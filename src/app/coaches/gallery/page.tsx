@@ -1,9 +1,17 @@
 import UploadImage from './UploadImage';
 import ImageCard from './ImageCard';
 import prisma from '@/lib/prisma';
-import Image from 'next/image';
+import { getServerSession } from "next-auth";
 
 export default async function Gallery() {
+    const session = await getServerSession();
+    const coach = await prisma.coach.findUnique({
+        where: { email: session?.user?.email || ''},
+    })
+
+    if (!coach?.gallery_access) {
+        return <div>You do not have access to view this page.</div>;
+    }
 
     const images = await prisma.image.findMany();
 

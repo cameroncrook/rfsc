@@ -10,13 +10,14 @@ export async function updateCoachPermissions(request: Request) {
     }
 
     try {
-        const { coach_id, messages_access, games_access, player_access, coaches_access } = await request.json();
+        const { coach_id, messages_access, games_access, player_access, gallery_access, coaches_access } = await request.json();
         await prisma.coach.update({
             where: { coach_id },
             data: {
                 messages_access:convertCheckboxToBoolean(messages_access),
                 games_access:convertCheckboxToBoolean(games_access),
                 player_access:convertCheckboxToBoolean(player_access),
+                gallery_access:convertCheckboxToBoolean(gallery_access),
                 coaches_access:convertCheckboxToBoolean(coaches_access)
             },
         });

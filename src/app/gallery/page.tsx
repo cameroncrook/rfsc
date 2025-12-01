@@ -15,7 +15,7 @@ export default async function gallery() {
             <header>
                 <MainNav />
             </header>
-            <main className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4 p-4">
+            <main className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 p-4">
                 {images.map((image) => (
                     <ImageCard key={image.id} image={image} />
                 ))}
