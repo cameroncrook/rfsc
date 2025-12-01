@@ -61,8 +61,8 @@ export default function UploadImage() {
             </div>
 
             <form className={`mb-6 ${isOpen ? '' : 'hidden'}`} onSubmit={handleSubmit}>
-                <p className='bg-red-500'>{errorMessage}</p>
-                <p className='bg-green-500'>{message}</p>
+                <p className='bg-red-500 mb-2'>{errorMessage}</p>
+                <p className='bg-green-500 mb-2'>{message}</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div>
                         <label className="block text-sm font-medium text-gray-700" htmlFor={"name"}>File Name</label>

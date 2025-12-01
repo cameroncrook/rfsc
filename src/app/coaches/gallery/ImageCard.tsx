@@ -75,14 +75,14 @@ export default function ImageCard({ image }: { image: imageType }) {
                     )}
                     { isEditing && (
                         <>
-                        <button onClick={handleUpdate} className='bg-white/20 p-1 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-green-300/30 cursor-pointer'><span className='text-xl text-green-800'>Change</span></button>
-                        <button onClick={() => {setIsEditing(false)}} className='size-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-red-300/30 cursor-pointer'><span className='material-symbols-outlined text-xl text-red-800'>cancel</span></button>
+                        <button onClick={handleUpdate} className='bg-white/50 p-1 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-green-300 cursor-pointer'><span className='text-xl text-green-800'>Change</span></button>
+                        <button onClick={() => {setIsEditing(false)}} className='size-9 bg-white/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-red-300 cursor-pointer'><span className='material-symbols-outlined text-xl text-red-800'>cancel</span></button>
                         </>
                     )}
                     { isDeleting && (
                         <>
-                        <button onClick={handleDelete} className='bg-white/20 p-1 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-green-300/30 cursor-pointer'><span className='text-xl text-green-800'>Delete</span></button>
-                        <button onClick={() => {setIsDeleting(false)}} className='size-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-red-300/30 cursor-pointer'><span className='material-symbols-outlined text-xl text-red-800'>cancel</span></button>
+                        <button onClick={handleDelete} className='bg-white/50 p-1 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-green-300 cursor-pointer'><span className='text-xl text-green-800'>Delete</span></button>
+                        <button onClick={() => {setIsDeleting(false)}} className='size-9 bg-white/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-red-300 cursor-pointer'><span className='material-symbols-outlined text-xl text-red-800'>cancel</span></button>
                         </>
                     )}
                     
