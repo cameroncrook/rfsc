@@ -4,6 +4,7 @@ import React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import type { Prisma } from '@prisma/client';
+import { useRouter } from "next/navigation";
 
 type PlayerWithWaiver = Prisma.playerGetPayload<{ include: { waiver: true } }>;
 
@@ -12,6 +13,8 @@ type PlayerProps = {
 }
 
 const Player: React.FC<PlayerProps> = ({data}) => {
+    const router = useRouter();
+
     const [isDeleting, setIsDeleting] = useState(false);
     const [isViewing, setIsViewing] = useState(false);
 
@@ -21,6 +24,24 @@ const Player: React.FC<PlayerProps> = ({data}) => {
 
     function handleDeleteToggle() {
         setIsDeleting(!isDeleting);
+    }
+
+    async function handleDelete() {
+        try {
+            const response = await fetch('/api/player', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ player_id: data.player_id }),
+            })
+
+            if (response.ok) {
+                router.refresh();
+            }
+        } catch (err) {
+            alert('Failed to delete player.');
+        }
     }
     
     return (
@@ -38,7 +59,7 @@ const Player: React.FC<PlayerProps> = ({data}) => {
                     </>
                 ) : (
                     <>
-                    <button className="text-green-500 hover:opacity-80 p-2 rounded-full transtion-colors cursor-pointer"><span className="material-symbols-outlined">check</span></button>
+                    <button onClick={handleDelete} className="text-green-500 hover:opacity-80 p-2 rounded-full transtion-colors cursor-pointer"><span className="material-symbols-outlined">check</span></button>
                     <button onClick={handleDeleteToggle} className="text-red-500 hover:text-red-400 p-2 rounded-full transtion-colors cursor-pointer"><span className="material-symbols-outlined">cancel</span></button>
                     </>
                 )}

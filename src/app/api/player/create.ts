@@ -62,7 +62,6 @@ export async function createPlayer(request: Request) {
             headers: { 'Content-Type': 'application/json' },
         });
     } catch (error) {
-        console.log('Error creating player:', error);
         return new Response(JSON.stringify({ error: `Failed to create player ${error}` }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },

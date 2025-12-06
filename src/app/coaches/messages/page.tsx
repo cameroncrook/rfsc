@@ -14,7 +14,9 @@ export default async function messages() {
         return <div>You do not have access to view this page.</div>;
     }
 
-    const messages = await prisma.message.findMany();
+    const messages = await prisma.message.findMany({
+        orderBy: { date: 'desc'}
+    });
 
     return (
         <div>
@@ -25,10 +27,10 @@ export default async function messages() {
                     <table className="w-full text-left">
                         <thead className="bg-primary/5">
                             <tr>
+                                <th className='px-6 py-4 text-sm font-semibold text-black/70'>Date</th>
                                 <th className="px-6 py-4 text-sm font-semibold text-black/70">Name</th>
                                 <th className="px-6 py-4 text-sm font-semibold text-black/70">Email</th>
-                                <th className="px-6 py-4 text-sm font-semibold text-black/70">Subject</th>
-                                <th className="px-6 py-4 text-sm font-semibold text-black/70 hidden lg:table-cell">Message</th>
+                                <th className="px-6 py-4 text-sm font-semibold text-black/70 hidden lg:table-cell">Subject</th>
                                 <th className="px-6 py-4 text-sm font-semibold text-black/70 text-right">Actions</th>
                             </tr>
                         </thead>

@@ -4,6 +4,7 @@ import React from "react";
 import type { message as MessageType } from '@prisma/client';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { formatDateSimple } from "@/lib/utils";
 
 type MessageProps = {
     data: MessageType;
@@ -14,6 +15,8 @@ const Message: React.FC<MessageProps> = ({data}) => {
 
     const [isDeleting, setIsDeleting] = useState(false);
     const [isViewing, setIsViewing] = useState(false);
+
+    const formattedDate = formatDateSimple(new Date(data.date));
 
     function handleViewToggle() {
         setIsViewing(!isViewing)
@@ -52,10 +55,10 @@ const Message: React.FC<MessageProps> = ({data}) => {
     return (
     <>
     <tr className="hover:bg-primary/5 transition-colors">
+        <td className="px-6 py-4 whitespace-nowrap text-black/60">{formattedDate}</td>
         <td className="px-6 py-4 whitespace-nowrap text-black/90 font-medium">{data.name}</td>
         <td className="px-6 py-4 whitespace-nowrap text-black/90"><a className="text-blue-500 hover:text-blue-400" href={`mailto:${data.email}`}>{data.email}</a></td>
-        <td className="px-6 py-4 whitespace-nowrap text-black/60">{data.subject}</td>
-        <td className="px-6 py-4 whitespace-nowrap text-black/60 hidden lg:table-cell truncate max-w-xs">{data.message}</td>
+        <td className="px-6 py-4 whitespace-nowrap text-black/60 hidden lg:table-cell truncate max-w-xs">{data.subject}</td>
         <td className="px-6 py-4 whitespace-nowrap text-right space-x-2">
             {!isDeleting ? (
                 <>
@@ -76,6 +79,7 @@ const Message: React.FC<MessageProps> = ({data}) => {
             <td colSpan={5} className="p-4">
                 <button onClick={handleViewToggle} className="float-right cursor-pointer"><span className="material-symbols-outlined">close</span></button>
                 <div className="space-y-2">
+                    <p><strong>Date:</strong> {formattedDate}</p>
                     <p><strong>Name:</strong> {data.name}</p>
                     <p><strong>Email:</strong> <a className="text-blue-500 hover:text-blue-400" href={`mailto:${data.email}`}>{data.email}</a></p>
                     <p><strong>Subject:</strong> {data.subject}</p>

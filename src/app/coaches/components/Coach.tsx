@@ -16,6 +16,7 @@ const Coach: React.FC<CoachProps> = ({data}) => {
 
     const [isViewing, setIsViewing] = useState(false);
     const [message, setMessage] = useState<string | null>(null);
+    const [isDeleting, setIsDeleting] = useState(false);
     
     function handleViewToggle() {
         setIsViewing(!isViewing);
@@ -75,6 +76,20 @@ const Coach: React.FC<CoachProps> = ({data}) => {
         }
     }
 
+    async function handleDelete() {
+        const response = await fetch('/api/coach', {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ coach_id: data.coach_id }),
+        })
+
+        if (response.ok) {
+            router.refresh();
+        }
+    }
+
     return (
         <>
         <tr className="hover:bg-primary/5 transition-colors">
@@ -128,7 +143,15 @@ const Coach: React.FC<CoachProps> = ({data}) => {
                         {data.password_token[0] && (
                             <button onClick={handleShare} className="bg-green-500 text-white p-2 rounded-md cursor-pointer hover:bg-green-600">Send registration link</button>
                         )}
-                        <button className="bg-red-500 text-white p-2 rounded-md cursor-pointer hover:bg-red-600">Delete Coach</button>
+                        
+                        {!isDeleting ? (
+                            <button onClick={() => setIsDeleting(true)} className="bg-red-500 text-white p-2 rounded-md cursor-pointer hover:bg-red-600">Delete Coach</button>
+                        ) : (
+                            <div className="grid grid-cols-2 gap-2">
+                                <button onClick={handleDelete} className="bg-green-500 text-white p-2 rounded-md cursor-pointer hover:bg-green-600">Delete</button>
+                                <button onClick={() => setIsDeleting(false)} className="bg-red-500 text-white p-2 rounded-md cursor-pointer hover:bg-red-600">Cancel</button>
+                            </div>
+                        )}
                     </div>
                 </td>
             </tr>
