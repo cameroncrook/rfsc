@@ -16,7 +16,7 @@ const MainNav: React.FC<MainNaveProps> = ({ lightMode }) => {
     }
 
     return (
-    <div className="container relative mx-auto px-6 py-4 flex justify-between items-center">
+    <div className="container relative mx-auto px-6 py-4 flex justify-between items-center z-99">
         <div className="flex items-center">
             <span className="material-icons text-primary text-3xl">sports_soccer</span>
             <span className={`ml-2 text-xl font-bold ${lightMode ? 'text-gray-200' : 'text-gray-800'}`}>Rigby Soccer</span>

@@ -9,11 +9,6 @@ export default function Sponsors() {
                 <MainNav />
             </header>
             <main className="">
-                <section className="flex justify-center bg-white">
-                    <div className="h-20 w-20 bg-cover bg-center bg-[url(https://lh3.googleusercontent.com/aida-public/AB6AXuAUM6veSK4IOdY1Yn24k0wJbKlNa7geaZrxE58lbSUEKK9Hd77VE1vd7Dx30L8mJ0YnXzVTFxn7qcILyus_K8TRM4hIqIW6JsVm0dOPlxPmLDxYq2aTG4uS7N-dNtX5znjEp4gCJlWIeIXGW5n6Dknte6xjP0HuDnESUmZlpaYYD2ZUN5Tq5vP3qbBFiPnMniJVMSJKWXsvKQtJtucdNRpfGBWUyh7yTcCB1BiJ8Rhf-wYihvCvmTAJk3SOLclYDCQv3s6juax9Qy0)]">
-                    </div>
-                </section>
-                
                 <section className="bg-white">
                     <div className="mx-auto max-w-3xl px-6 py-12">
                         

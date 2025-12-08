@@ -14,6 +14,19 @@ export function formatGameDate(date: Date) {
     return `${monthDay} @${time.replace(' ', '')} ${year}`;
 }
 
+export function formatDateSimple(date: Date) {
+    const options: Intl.DateTimeFormatOptions = {
+        month: 'numeric',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+    };
+    // Format: "10/23/2025, 5:00 PM"
+    return date.toLocaleString('en-US', options);
+}
+
 export function convertCheckboxToBoolean(value: string | undefined): boolean {
     return value === 'on' ? true : false;
 }
