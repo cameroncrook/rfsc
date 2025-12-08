@@ -11,12 +11,24 @@ export default async function uploadImage(req: Request) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    console.log('Type', file.type);
-    console.log('Size', file.size);
     const filename = file.name;
 
-    // Save file to disk (for demonstration purposes, adjust as needed)
     try {
+        if (file.size > 5 * 1024 * 1024) {
+            return new Response(JSON.stringify({ message: "File size exceeds 5MB limit" }), {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+            });
+        }
+
+        const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/webp", "image/svg+xml"];
+        if (!allowedTypes.includes(file.type)) {
+            return new Response(JSON.stringify({ message: "Invalid file type. Only image files are allowed" }), {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+            });
+        }
+        
         const uploadDir = path.join(process.cwd(), "public", "gallery");
         if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
@@ -30,7 +42,7 @@ export default async function uploadImage(req: Request) {
                 filename,
             }
         })
-
+        
         return new Response(JSON.stringify({ message: "File uploaded successfully" }), {
             status: 200,
             headers: { "Content-Type": "application/json" },
